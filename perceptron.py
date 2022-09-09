@@ -77,14 +77,14 @@ def main():
 	yp = p_and.predict(points)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu') #mapa de colores de green a blue
 	plt.show() #FIGURA 2 SIN ENTRENAR 
-	plt.savefig('Perceptron sin entrenar')
+	plt.savefig('Perceptron sin entrenar') #guarda la imagen
 
 	p_and.fit(x = x, y = y, epochs=1000) # numero de iteraciones 
 
 	yp = p_and.predict(points)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu')#mapa de colores de green a blue entrenado
 	plt.show() #FIGURA 3 ENTRENADO
-	plt.savefig('Perceptron entrenado')
+	plt.savefig('Perceptron entrenado') #guarda la imagen
 
 if __name__ == '__main__':
 	main()

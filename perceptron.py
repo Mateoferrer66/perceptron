@@ -14,15 +14,15 @@ def random_points(n = 100): #Conjunto de datos y predicciones del perceptron
 
 class Perceptron:
 
-	def __init__(self, n_inputs, act_f):
-		# bias es un valor de direccion que permite cambiar o disparar la función de activación
+	def __init__(self, n_inputs, act_f): #cuenta con 2 entradas o parametros numero de inputs y funcion de activacion
+		# bias es un valor de direccion que permite cambiar o disparar la función de activación(escalar o vector columna)
 		'''
-		Inicializamos pesos, el bias y la funcion de activacion,
+		Inicializamos vector de pesos, el bias y la funcion de activacion,
 		'''
 		self.weights = np.random.rand(n_inputs,1)
 		self.bias = np.random.rand()
-		self.act_f = act_f
-		self.n_inputs = n_inputs
+		self.act_f = act_f #constructor funcion activacion 
+		self.n_inputs = n_inputs # constuctor numero de inputs
 
 	def predict(self, x):
 		'''
@@ -30,9 +30,9 @@ class Perceptron:
 		las entradas y los pesos, suma el bias y evalua en
 		la funcion de activacion.
 		'''
-		return self.act_f(x @ self.weights + self.bias)
+		return self.act_f(x @ self.weights + self.bias) #multiplicacion de vectores y matrices
 
-	def fit(self, x, y, epochs = 100):#numero de epocas a utilizar
+	def fit(self, x, y, epochs = 10):#numero de itereaciones a utilizar para entrenar
 		'''
 		Metodo fit, se encarga de entrenar al perceptron,
 		calculando el error en cada iteracion y ajustando
@@ -44,7 +44,7 @@ class Perceptron:
 		'''
 		for i in range(epochs):
 			for j in range(len(x)):
-				output = self.predict(x[j])
+				output = self.predict(x[j]) # output red neuronal
 				error = y[j] - output
 				self.weights = self.weights + (error * x[j][1]) #cuanto se equivoca respecto a la prediccion del atgoritmo
 				self.bias = self.bias + error

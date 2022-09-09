@@ -52,7 +52,7 @@ class Perceptron:
 def main():
 	points = random_points(10000) #numero de puntos para testear
 	plt.scatter(points[:,0], points[:,1], s = 10) 
-	plt.show()#FIGURA 1 
+	#plt.show()#FIGURA 1 
 
 	'''
 	COMPUERTA AND
@@ -76,7 +76,7 @@ def main():
 
 	yp = p_and.predict(points)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu') #mapa de colores de green a blue
-	plt.show() #FIGURA 2 SIN ENTRENAR 
+	#plt.show() #FIGURA 2 SIN ENTRENAR 
 	plt.savefig('Perceptron sin entrenar') #guarda la imagen
 	print(x)
 	print(y)

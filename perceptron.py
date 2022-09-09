@@ -78,7 +78,8 @@ def main():
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu') #mapa de colores de green a blue
 	plt.show() #FIGURA 2 SIN ENTRENAR 
 	plt.savefig('Perceptron sin entrenar') #guarda la imagen
-
+	print(x)
+	print(y)
 	p_and.fit(x = x, y = y, epochs=1000) # numero de iteraciones 
 
 	yp = p_and.predict(points)

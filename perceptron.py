@@ -30,7 +30,7 @@ class Perceptron:
 		las entradas y los pesos, suma el bias y evalua en
 		la funcion de activacion.
 		'''
-		return self.act_f(x @ self.weights + self.bias) #multiplicacion de vectores y matrices
+		return self.act_f(x @ self.weights + self.bias) #multiplicacion de vectores
 
 	def fit(self, x, y, epochs = 10):#numero de itereaciones a utilizar para entrenar
 		'''

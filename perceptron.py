@@ -1,4 +1,5 @@
 #librerias para visualizacion de datos 
+from array import array
 import numpy as np #instalacion manual librerias
 import matplotlib.pyplot as plt #instalacion manual librerias
 
@@ -57,28 +58,26 @@ def main():
 	'''
 	COMPUERTA AND
 	'''
+	var_1 = input(' Dijite el primer valor ')
+	var_2 = input(' Dijite el segundo valor ')
+	print()
 
 	x = np.array([
-				[0,0],
-				[0,1],
-				[1,0],
-				[1,1]
+				[var_1,var_2]
 	])
 	
 	y = np.array([
-		[0],
-		[0],
-		[0],
-		[1]
-	])
+		[var_3]
+		])
+
+	array_g = [var_1,var_2]
+	print(array_g)
 
 	p_and = Perceptron(2, sigmoid) # 2 entradas funcion de activacion y numero de inputs
 	yp = p_and.predict(points)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu') #mapa de colores de green a blue
 	plt.show() #FIGURA 2 SIN ENTRENAR 
 	plt.savefig('Perceptron sin entrenar') #guarda la imagen
-	print(x)
-	print(y)
 	p_and.fit(x = x, y = y, epochs=1000) # numero de iteraciones 
 
 	yp = p_and.predict(points)

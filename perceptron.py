@@ -8,8 +8,8 @@ tanh = 	lambda x: np.tanh(x) #Funcion tangente  con hiperbolica
 relu = 	lambda x: np.maximum(0, x)
 
 def random_points(n = 100): #Conjunto de datos y predicciones del perceptron
-	x = np.random.uniform(0.0, 10.0, n) #Datos aleatorios
-	y = np.random.uniform(0.0, 10.0, n)
+	x = np.random.uniform(-5.0, 5.0, n) #Datos aleatorios
+	y = np.random.uniform(-5.0, 5.0, n)
 
 	return np.array([x, y]).T #retorna vector columna
 
@@ -76,11 +76,8 @@ def main():
 		])
 
 	x_x = [var_1,var_2]
-	print(x)
 	print(x_x)
-	print(y)
-
-
+	
 	p_and = Perceptron(2, sigmoid) # 2 entradas funcion de activacion y numero de inputs
 	yp = p_and.predict(points)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu') #mapa de colores de green a blue

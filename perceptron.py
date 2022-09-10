@@ -7,7 +7,9 @@ sigmoid = lambda x: 1/(1 + np.e**-x) #Funciones sigmoide
 tanh = 	lambda x: np.tanh(x) #Funcion tangente  con hiperbolica
 relu = 	lambda x: np.maximum(0, x)
 
+
 def random_points(n = 100): #Conjunto de datos y predicciones del perceptron
+
 	x = np.random.uniform(-10.0, 10.0, n) #Datos aleatorios
 	y = np.random.uniform(-10.0, 10.0, n)
 
@@ -60,7 +62,7 @@ def main():
 	'''
 	var_1 = input(' Dijite el primer valor ')
 	var_2 = input(' Dijite el segundo valor ')
-
+	
 	x = np.array([
 				[0,0],
 				[0,1],
@@ -74,6 +76,7 @@ def main():
 				[0],
 				[1]
 		])
+
 
 	x_x = [var_1,var_2]
 	print(x_x)

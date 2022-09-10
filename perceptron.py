@@ -80,7 +80,7 @@ def main():
 
 	x_x = [var_1,var_2]
 	print(x_x)
-	
+
 	p_and = Perceptron(2, sigmoid) # 2 entradas funcion de activacion y numero de inputs
 	yp = p_and.predict(points)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu') #mapa de colores de green a blue

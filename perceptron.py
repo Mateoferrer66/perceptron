@@ -8,8 +8,8 @@ tanh = 	lambda x: np.tanh(x) #Funcion tangente  con hiperbolica
 relu = 	lambda x: np.maximum(0, x)
 
 def random_points(n = 100): #Conjunto de datos y predicciones del perceptron
-	x = np.random.uniform(0.0, 1.0, n) #Datos aleatorios
-	y = np.random.uniform(0.0, 1.0, n)
+	x = np.random.uniform(0.0, 10.0, n) #Datos aleatorios
+	y = np.random.uniform(0.0, 10.0, n)
 
 	return np.array([x, y]).T #retorna vector columna
 
@@ -33,7 +33,7 @@ class Perceptron:
 		'''
 		return self.act_f(x @ self.weights + self.bias) #multiplicacion de vectores
 
-	def fit(self, x, y, epochs = 10):#numero de itereaciones a utilizar para entrenar
+	def fit(self, x, y, epochs = 1000):#numero de itereaciones a utilizar para entrenar
 		'''
 		Metodo fit, se encarga de entrenar al perceptron,
 		calculando el error en cada iteracion y ajustando
@@ -60,23 +60,31 @@ def main():
 	'''
 	var_1 = input(' Dijite el primer valor ')
 	var_2 = input(' Dijite el segundo valor ')
-	print()
 
 	x = np.array([
-				[var_1,var_2]
+				[0,0],
+				[0,1],
+				[1,0],
+				[1,1]
 	])
 	
 	y = np.array([
-		[var_3]
+				[0],
+				[0],
+				[0],
+				[1]
 		])
 
-	array_g = [var_1,var_2]
-	print(array_g)
+	x_x = [var_1,var_2]
+	print(x)
+	print(x_x)
+	print(y)
+
 
 	p_and = Perceptron(2, sigmoid) # 2 entradas funcion de activacion y numero de inputs
 	yp = p_and.predict(points)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu') #mapa de colores de green a blue
-	plt.show() #FIGURA 2 SIN ENTRENAR 
+	#plt.show() #FIGURA 2 SIN ENTRENAR 
 	plt.savefig('Perceptron sin entrenar') #guarda la imagen
 	p_and.fit(x = x, y = y, epochs=1000) # numero de iteraciones 
 

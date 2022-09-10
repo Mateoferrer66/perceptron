@@ -10,10 +10,21 @@ relu = 	lambda x: np.maximum(0, x)
 
 def random_points(n = 100): #Conjunto de datos y predicciones del perceptron
 
-	x = np.random.uniform(-10.0, 10.0, n) #Datos aleatorios
-	y = np.random.uniform(-10.0, 10.0, n)
+	x = np.random.uniform(0.0, 1.0, n) #Datos aleatorios
+	y = np.random.uniform(0.0, 1.0, n)
 
 	return np.array([x, y]).T #retorna vector columna
+
+def int_to_bit(f):
+	f=float(f)
+	f=int(f)
+	if f>=1:
+		f=1
+		return f
+	if f<=0:
+		f=0
+		return f
+			
 
 class Perceptron:
 
@@ -60,8 +71,12 @@ def main():
 	'''
 	COMPUERTA AND
 	'''
+	
 	var_1 = input(' Dijite el primer valor ')
 	var_2 = input(' Dijite el segundo valor ')
+	
+	var_1 = int_to_bit(var_1)
+	var_2 = int_to_bit(var_2)
 	
 	x = np.array([
 				[0,0],
@@ -80,15 +95,18 @@ def main():
 
 	x_x = [var_1,var_2]
 	print(x_x)
+	
 
 	p_and = Perceptron(2, sigmoid) # 2 entradas funcion de activacion y numero de inputs
 	yp = p_and.predict(points)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu') #mapa de colores de green a blue
-	#plt.show() #FIGURA 2 SIN ENTRENAR 
+	#plt.show() #FIGURA 2 SIN ENTRENAR dcX
 	plt.savefig('Perceptron sin entrenar') #guarda la imagen
 	p_and.fit(x = x, y = y, epochs=1000) # numero de iteraciones 
 
 	yp = p_and.predict(points)
+	p= var_1 and var_2
+	print(p)
 	plt.scatter(points[:,0], points[:,1], s = 10, c=yp, cmap='GnBu')#mapa de colores de green a blue entrenado
 	plt.show() #FIGURA 3 ENTRENADO
 	plt.savefig('Perceptron entrenado') #guarda la imagen

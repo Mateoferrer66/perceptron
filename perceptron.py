@@ -8,8 +8,8 @@ tanh = 	lambda x: np.tanh(x) #Funcion tangente  con hiperbolica
 relu = 	lambda x: np.maximum(0, x)
 
 def random_points(n = 100): #Conjunto de datos y predicciones del perceptron
-	x = np.random.uniform(-5.0, 5.0, n) #Datos aleatorios
-	y = np.random.uniform(-5.0, 5.0, n)
+	x = np.random.uniform(-10.0, 10.0, n) #Datos aleatorios
+	y = np.random.uniform(-10.0, 10.0, n)
 
 	return np.array([x, y]).T #retorna vector columna
 
